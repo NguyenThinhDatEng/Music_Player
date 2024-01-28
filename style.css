@@ -93,7 +93,9 @@ p {
   width: 500px;
   background-color: #fff;
   padding: 16px;
-  border: 1px solid var(--active-color)
+  border: 1px solid var(--active-color);
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .player h4 {

@@ -1,4 +1,4 @@
-import { SONGS_CONFIG } from "./assets/config.js";
+import { SONGS_CONFIG, LOCAL_STORAGE_KEYS } from "./assets/config.js";
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -122,6 +122,9 @@ const handleEvents = () => {
   // Handle when click on the random button
   randomBtn.onclick = () => {
     settings.isRandom = !settings.isRandom;
+    // Save user'choice
+    localStorage.setItem(LOCAL_STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
+
     if (settings.isRandom) {
       randomBtn.classList.add("active");
     } else {
@@ -132,6 +135,9 @@ const handleEvents = () => {
   // Handle when click on the repeat button
   repeatBtn.onclick = () => {
     settings.isRepeat = !settings.isRepeat;
+    // Save user'choice
+    localStorage.setItem(LOCAL_STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
+
     if (settings.isRepeat) {
       repeatBtn.classList.add("active");
     } else {
@@ -225,8 +231,22 @@ const render = () => {
 
   // Icons
   pauseIcon.style.display = "none";
+
+  // Controls
+  if (settings.isRandom) {
+    randomBtn.classList.add("active");
+  }
+
+  if (settings.isRepeat) {
+    repeatBtn.classList.add("active");
+  }
 };
 
+/**
+ * Convert seconds to mm:ss
+ * @param {Number} seconds
+ * @returns {String} mm:ss
+ */
 const formatTime = (seconds) => {
   seconds = seconds ? seconds : 0;
   const min = Math.floor(seconds / 60);
@@ -234,6 +254,11 @@ const formatTime = (seconds) => {
   return `${formatNumber(min)}:${formatNumber(sec)}`;
 };
 
+/**
+ * Add '0' in front of this number if number < 10
+ * @param {Number} number
+ * @returns {String} '0' + number
+ */
 const formatNumber = (number) => {
   if (number < 10) {
     return `0${number}`;
@@ -271,8 +296,33 @@ const loadCurrentSong = () => {
   });
 };
 
+/**
+ * @description Update settings to get user's choices
+ */
+const updateSettings = () => {
+  if (localStorage.getItem("settings")) {
+    const settingsTmp = localStorage.getItem("settings");
+    try {
+      const settingsObject = JSON.parse(settingsTmp);
+      const fields = ["isRandom", "isRepeat"];
+      fields.forEach((field) => {
+        if (settingsObject.hasOwnProperty(field)) {
+          settings[field] = settingsObject[field] ?? false;
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
+
+/**
+ * start app
+ */
 const start = () => {
   handleEvents();
+
+  updateSettings();
 
   loadCurrentSong();
 

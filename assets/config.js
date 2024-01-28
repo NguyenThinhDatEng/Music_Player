@@ -66,3 +66,7 @@ export const SONGS_CONFIG = [
     image: "assets/imgs/Hy_vong_qua_hoa_dau_long.jpg",
   },
 ];
+
+export const LOCAL_STORAGE_KEYS = {
+  SETTINGS: "settings",
+};

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trình phát nhạc</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/fonts/fontawesome.com/releases/v6.4.2/css/all.css" />
+  <link rel="icon" href="assets/imgs/document-icon.png" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="music_player flex-column">
+      <div class="player flex-column flex-column-center">
+        <h4 class="mb-2 primary-color">Đang phát:</h4>
+        <img class="cd mb-2" />
+        <div id="current_song" class="song flex-column flex-column-center mb-2">
+          <h2 class="title mb-1"></h2>
+          <h3 class="singer"></h3>
+        </div>
+        <input type="range" class="progress mb-1" value="0" step="1" min="0" max="100">
+        <div class="times flex flex-space-between full-width mb-2">
+          <span class="current"></span>
+          <span class="duration"></span>
+        </div>
+        <div class="controls flex flex-space-between full-width flex-column-center">
+          <button class="btn repeat" title="Lặp lại"><i class="fa-light fa-rotate-right"></i></button>
+          <button class="btn prev" title="Bài trước"><i class="fa-light fa-backward-step"></i></button>
+          <button class="btn play" title="Phát nhạc">
+            <i class="fa-solid fa-play icon-play"></i>
+            <i class="fa-solid fa-pause icon-pause"></i>
+          </button>
+          <button class="btn next" title="Bài tiếp theo"><i class="fa-light fa-forward-step"></i></button>
+          <button class="btn random" title="Ngẫu nhiên"><i class="fa-light fa-shuffle"></i></button>
+        </div>
+        <audio />
+      </div>
+      <div class="songs flex-column">
+      </div>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>

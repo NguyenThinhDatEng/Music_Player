@@ -1,5 +1,11 @@
 export const SONGS_CONFIG = [
   {
+    name: "Tết Đong Đầy",
+    singer: "KHOA x Kay Tran x Duck V",
+    path: "./assets/musics/Tet_dong_day.mp3",
+    image: "./assets/imgs/Tet_dong_day.jpg",
+  },
+  {
     name: "Hồng Nhan (Kaifo x Ness Remix)",
     singer: "Jack (G5R)",
     path: "./assets/musics/hong-nhan-jack.mp3",

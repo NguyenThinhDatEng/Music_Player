@@ -94,17 +94,11 @@ const handleEvents = () => {
   // Handle when click on the play button
   playBtn.onclick = (e) => {
     if (!isPlaying) {
-      pauseIcon.style.display = "block";
-      playIcon.style.display = "none";
       audio.play();
-      // Cập nhật tiêu đề
-      e.target.closest(".play").title = "Tạm dừng";
     } else {
       playIcon.style.display = "block";
       pauseIcon.style.display = "none";
       audio.pause();
-      // Cập nhật tiêu đề
-      e.target.closest(".play").title = "Phát nhạc";
     }
     isPlaying = !isPlaying;
   };
@@ -188,10 +182,20 @@ const handleEvents = () => {
   // Handle when playing a song
   audio.onplay = () => {
     cdAnimation.play();
+    // Cập nhật tiêu đề nút play
+    playBtn.title = "Tạm dừng";
+    // show corresponding icon
+    pauseIcon.style.display = "block";
+    playIcon.style.display = "none";
   };
 
   audio.onpause = () => {
     cdAnimation.pause();
+    // Cập nhật tiêu đề nút play
+    playBtn.title = "Phát nhạc";
+    // show corresponding icon
+    pauseIcon.style.display = "none";
+    playIcon.style.display = "block";
   };
   //#end region
 

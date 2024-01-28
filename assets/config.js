@@ -6,6 +6,12 @@ export const SONGS_CONFIG = [
     image: "./assets/imgs/Tet_dong_day.jpg",
   },
   {
+    name: "Diamonds",
+    singer: "Rihanna",
+    path: "./assets/musics/Diamonds.mp3",
+    image: "./assets/imgs/Diamonds.jpg",
+  },
+  {
     name: "Hồng Nhan (Kaifo x Ness Remix)",
     singer: "Jack (G5R)",
     path: "./assets/musics/hong-nhan-jack.mp3",

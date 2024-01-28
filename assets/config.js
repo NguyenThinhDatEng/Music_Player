@@ -12,6 +12,12 @@ export const SONGS_CONFIG = [
     image: "./assets/imgs/Diamonds.jpg",
   },
   {
+    name: "Hoa Bỉ Ngạn",
+    singer: "HADES",
+    path: "./assets/musics/Hoa_bi_ngan.mp3",
+    image: "./assets/imgs/Hoa_bi_ngan.jpg",
+  },
+  {
     name: "Hồng Nhan (Kaifo x Ness Remix)",
     singer: "Jack (G5R)",
     path: "./assets/musics/hong-nhan-jack.mp3",
